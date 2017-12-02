@@ -17,6 +17,8 @@ mongoose.connection.on('error',function(err){
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'public')));
+app.use(passport.initialize());
+app.use(passport.session());
 const user=require('./routes/user.js');
 app.use('/user',user);
 app.get('/',function(req,res){
