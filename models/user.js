@@ -19,13 +19,13 @@ password:{
     required:true
 }
 });
-const user=module.exports=mongoose.model('user',userSchema);
+const User=module.exports=mongoose.model('User',userSchema);
 module.exports.getUserById=function(id,callback){
-    user.findById(id,callback);
+    User.findById(id,callback);
 }
 module.exports.getUserByName=function(username,callback){
     const query={username:username}
-    user.findOne(username,callback);
+    User.findOne(username,callback);
 }
 module.exports.addUser=function(newUser,callback){
     bcrypt.genSalt(10, function(err, salt) {
